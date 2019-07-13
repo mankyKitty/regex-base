@@ -189,7 +189,7 @@ class (Extract source)=> RegexLike regex source where
 -- > ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
 class (RegexLike regex source) => RegexContext regex source target where
   match :: regex -> source -> target
-  matchM :: (Monad m) => regex -> source -> m target
+  matchM :: (MonadFail m) => regex -> source -> m target
 
 ----------------
 -- | Extract allows for indexing operations on String or ByteString.

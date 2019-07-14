@@ -102,9 +102,9 @@ class (RegexOptions regex compOpt execOpt) => RegexMaker regex compOpt execOpt s
   -- | Specify your own options
   makeRegexOpts :: compOpt -> execOpt -> source -> regex
   -- | make using the defaultCompOpt and defaultExecOpt, reporting errors with fail
-  makeRegexM :: (Monad m) => source -> m regex
+  makeRegexM :: (MonadFail m) => source -> m regex
   -- | Specify your own options, reporting errors with fail
-  makeRegexOptsM :: (Monad m) => compOpt -> execOpt -> source -> m regex
+  makeRegexOptsM :: (MonadFail m) => compOpt -> execOpt -> source -> m regex
 
   makeRegex = makeRegexOpts defaultCompOpt defaultExecOpt
   makeRegexM = makeRegexOptsM defaultCompOpt defaultExecOpt
